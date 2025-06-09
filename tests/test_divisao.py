@@ -1,3 +1,5 @@
+import pytest
+
 def divisao(a, b):
     return a / b
 
@@ -6,5 +8,5 @@ def test_divisao_com_valores_positivos():
     assert resultado == 5
 
 def test_divisao_com_valores_zero():
-    resultado = divisao(5, 0)
-    assert resultado == ZeroDivisionError
+    with pytest.raises(ZeroDivisionError):
+        divisao(5,0)
